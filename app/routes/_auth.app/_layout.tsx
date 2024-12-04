@@ -1,5 +1,5 @@
-import { Outlet, createFileRoute } from "@tanstack/react-router"
-import { createContext, useContext, useState } from "react"
+import { Outlet, createFileRoute } from '@tanstack/react-router'
+import { createContext, useContext, useState } from 'react'
 
 type AppContextType = {
   someValue: string
@@ -10,13 +10,13 @@ export const AppContext = createContext<AppContextType | undefined>(undefined)
 export function useAppContext() {
   const context = useContext(AppContext)
   if (!context) {
-    throw new Error("useAppContext must be used within an AppContextProvider")
+    throw new Error('useAppContext must be used within an AppContextProvider')
   }
   return context
 }
 
 function LayoutComponent() {
-  const [someValue, setSomeValue] = useState("default value")
+  const [someValue, setSomeValue] = useState('default value')
   return (
     <>
       <AppContext.Provider value={{ someValue, setSomeValue }}>
@@ -26,6 +26,6 @@ function LayoutComponent() {
   )
 }
 
-export const Route = createFileRoute("/_layout")({
+export const Route = createFileRoute('/_auth/app/_layout')({
   component: LayoutComponent,
 })
