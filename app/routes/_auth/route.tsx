@@ -26,6 +26,6 @@ function LayoutComponent() {
   )
 }
 
-export const Route = createFileRoute('/_auth/app')({
+export const Route = createFileRoute('/_auth')({
   component: LayoutComponent,
 })

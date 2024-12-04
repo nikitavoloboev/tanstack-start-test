@@ -1,5 +1,5 @@
-import { createFileRoute } from "@tanstack/react-router"
-import { useAppContext } from "./route"
+import { createFileRoute } from '@tanstack/react-router'
+import { useAppContext } from './route'
 
 function RouteComponent() {
   const { someValue, setSomeValue } = useAppContext()
@@ -7,6 +7,6 @@ function RouteComponent() {
   return <div>Hello /some-route</div>
 }
 
-export const Route = createFileRoute("/_auth/app/some-route")({
+export const Route = createFileRoute('/_auth/some-route')({
   component: RouteComponent,
 })
