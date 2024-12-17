@@ -11,16 +11,16 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
-import { Route as SearchParamsImport } from './routes/search-params'
+import { Route as ParamsImport } from './routes/params'
 import { Route as AuthRouteImport } from './routes/_auth/route'
 import { Route as AuthIndexImport } from './routes/_auth/index'
 import { Route as AuthSomeRouteImport } from './routes/_auth/some-route'
 
 // Create/Update Routes
 
-const SearchParamsRoute = SearchParamsImport.update({
-  id: '/search-params',
-  path: '/search-params',
+const ParamsRoute = ParamsImport.update({
+  id: '/params',
+  path: '/params',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -52,11 +52,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthRouteImport
       parentRoute: typeof rootRoute
     }
-    '/search-params': {
-      id: '/search-params'
-      path: '/search-params'
-      fullPath: '/search-params'
-      preLoaderRoute: typeof SearchParamsImport
+    '/params': {
+      id: '/params'
+      path: '/params'
+      fullPath: '/params'
+      preLoaderRoute: typeof ParamsImport
       parentRoute: typeof rootRoute
     }
     '/_auth/some-route': {
@@ -94,13 +94,13 @@ const AuthRouteRouteWithChildren = AuthRouteRoute._addFileChildren(
 
 export interface FileRoutesByFullPath {
   '': typeof AuthRouteRouteWithChildren
-  '/search-params': typeof SearchParamsRoute
+  '/params': typeof ParamsRoute
   '/some-route': typeof AuthSomeRouteRoute
   '/': typeof AuthIndexRoute
 }
 
 export interface FileRoutesByTo {
-  '/search-params': typeof SearchParamsRoute
+  '/params': typeof ParamsRoute
   '/some-route': typeof AuthSomeRouteRoute
   '/': typeof AuthIndexRoute
 }
@@ -108,28 +108,28 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/_auth': typeof AuthRouteRouteWithChildren
-  '/search-params': typeof SearchParamsRoute
+  '/params': typeof ParamsRoute
   '/_auth/some-route': typeof AuthSomeRouteRoute
   '/_auth/': typeof AuthIndexRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '' | '/search-params' | '/some-route' | '/'
+  fullPaths: '' | '/params' | '/some-route' | '/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/search-params' | '/some-route' | '/'
-  id: '__root__' | '/_auth' | '/search-params' | '/_auth/some-route' | '/_auth/'
+  to: '/params' | '/some-route' | '/'
+  id: '__root__' | '/_auth' | '/params' | '/_auth/some-route' | '/_auth/'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   AuthRouteRoute: typeof AuthRouteRouteWithChildren
-  SearchParamsRoute: typeof SearchParamsRoute
+  ParamsRoute: typeof ParamsRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   AuthRouteRoute: AuthRouteRouteWithChildren,
-  SearchParamsRoute: SearchParamsRoute,
+  ParamsRoute: ParamsRoute,
 }
 
 export const routeTree = rootRoute
@@ -143,7 +143,7 @@ export const routeTree = rootRoute
       "filePath": "__root.tsx",
       "children": [
         "/_auth",
-        "/search-params"
+        "/params"
       ]
     },
     "/_auth": {
@@ -153,8 +153,8 @@ export const routeTree = rootRoute
         "/_auth/"
       ]
     },
-    "/search-params": {
-      "filePath": "search-params.tsx"
+    "/params": {
+      "filePath": "params.tsx"
     },
     "/_auth/some-route": {
       "filePath": "_auth/some-route.tsx",
