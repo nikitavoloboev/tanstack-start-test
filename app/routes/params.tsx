@@ -1,15 +1,20 @@
-import { createFileRoute, useSearch } from "@tanstack/react-router"
+import { createFileRoute } from "@tanstack/react-router"
 
 function RouteComponent() {
-  const { community } = useSearch<typeof Route>()
-  return <div>Community: {community}</div>
+  const { state } = Route.useSearch()
+  console.log(state)
+  return (
+    <>
+      <div>{state}</div>
+    </>
+  )
 }
 
 export const Route = createFileRoute("/params")({
   component: RouteComponent,
   validateSearch: (search: Record<string, unknown>) => {
     return {
-      community: search.community as string,
+      state: search.state as string,
     }
   },
 })
